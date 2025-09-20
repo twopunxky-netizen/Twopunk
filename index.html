@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen API Demo - Image Editor</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@1.0.0"
+        }
+      }
+    </script>
+</head>
+<body>
+    <div id="app-container">
+        <h1>AI Image Editor</h1>
+        <div id="editor-ui">
+            <div class="image-container">
+                <img id="source-image" alt="Source image for editing">
+                <p class="image-label">Source Image</p>
+            </div>
+            <div class="controls">
+                <label for="prompt-input">Enter a prompt to edit the image:</label>
+                <input type="text" id="prompt-input" placeholder="e.g., Add a birthday hat and balloons">
+                <button id="generate-button" aria-label="Generate edited image">
+                    <span class="button-text">Generate</span>
+                    <div class="spinner hidden"></div>
+                </button>
+            </div>
+        </div>
+        <hr/>
+        <h2>Generated Images</h2>
+        <div id="image-gallery-container">
+             <div id="image-gallery">
+                <p class="placeholder">Your edited images will appear here.</p>
+             </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="hidden">
+        <span class="close-button" role="button" aria-label="Close image view">&times;</span>
+        <img id="lightbox-image" alt="Enlarged view">
+        <a class="prev-button" role="button" aria-label="Previous image">&#10094;</a>
+        <a class="next-button" role="button" aria-label="Next image">&#10095;</a>
+        <a id="download-button" role="button" aria-label="Download image" download>Download</a>
+    </div>
+
+    <script type="module" src="index.tsx"></script>
+</body>
+</html>
